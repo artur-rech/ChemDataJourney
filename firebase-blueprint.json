@@ -1,0 +1,54 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile settings and application state",
+      "type": "object",
+      "properties": {
+        "settings": {
+          "type": "object",
+          "properties": {
+            "theme": { "type": "string" },
+            "dailyHoursGoal": { "type": "number" },
+            "userName": { "type": "string" },
+            "userRole": { "type": "string" },
+            "targetRole": { "type": "string" }
+          }
+        },
+        "courses": {
+          "type": "object",
+          "description": "Course progress map"
+        },
+        "courseLinks": {
+          "type": "object",
+          "description": "Saved course links"
+        },
+        "completedWeeks": {
+          "type": "array",
+          "items": { "type": "number" }
+        },
+        "studyLogs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": { "type": "string" },
+              "hours": { "type": "number" }
+            }
+          }
+        },
+        "diary": {
+          "type": "object",
+          "description": "Diary entries map"
+        }
+      },
+      "required": ["settings", "courses", "completedWeeks", "studyLogs", "diary"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profile and full app state document"
+    }
+  }
+}
