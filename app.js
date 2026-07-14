@@ -1,3 +1,7 @@
+import "./storage.js";
+import "./roadmap.js";
+import "./charts.js";
+
 /**
  * ChemData Journey - Application Controller
  * Controlador principal da aplicação (SPA, Event Listeners, State Management, Renderização Dinâmica)
